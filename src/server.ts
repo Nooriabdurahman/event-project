@@ -7,7 +7,7 @@ const port = Number(process.env.PORT) || 8000;
 // Swagger setup
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Fallback route for 404
+
 app.use((_req, res) => {
   res.status(404).json({ error: 'Route does not exist' });
 });

@@ -59,7 +59,7 @@ export const sendcode = async (req: Request, res: Response): Promise<void> => {
 };
 
 export const verfycode = async (req: Request, res: Response): Promise<void> => {
-  const { email, code } = req.body;
+  const { email, code } = req.body;    
   if (codes[email] && codes[email] === code.toUpperCase()) {
     res.json({ success: true, message: '✅ Code is correct!' });
     delete codes[email];

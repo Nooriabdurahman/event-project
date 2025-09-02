@@ -21,7 +21,7 @@ router.get('/', getEvents);
  * @swagger
  * /events/uploads:
  *   post:
- *     summary: make a new event
+ *     summary: Create a new event
  *     tags: [Events]
  *     requestBody:
  *       required: true
@@ -30,18 +30,40 @@ router.get('/', getEvents);
  *           schema:
  *             type: object
  *             properties:
- *               title:
+ *               myFile:
  *                 type: string
+ *                 description: Base64 encoded file
+ *               eventTitle:
+ *                 type: string
+ *                 description: Title of the event
  *               description:
  *                 type: string
+ *                 description: Description of the event
+ *               category:
+ *                 type: string
+ *                 description: Category of the event
  *               date:
  *                 type: string
  *                 format: date
+ *                 description: Date of the event
+ *               time:
+ *                 type: string
+ *                 description: Time of the event
+ *               location:
+ *                 type: string
+ *                 description: Location of the event
+ *               organizerName:
+ *                 type: string
+ *                 description: Name of the organizer
+ *               contactInformation:
+ *                 type: string
+ *                 description: Contact information
  *     responses:
  *       201:
- *         description: to make a new event
+ *         description: Event created successfully
  */
 router.post('/uploads', validateEventCreation, createEvent);
+
 
 /**
  * @swagger
